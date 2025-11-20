@@ -1,0 +1,142 @@
+/* ---------------------------------------------------------
+   🌐 Ultra-Professional Glass + Neon Animated Header
+--------------------------------------------------------- */
+
+.header-wrapper {
+  width: 100%;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  animation: fadeDown 1s ease both;
+  box-shadow: 0 6px 30px rgba(60, 40, 255, 0.15);
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------------
+   Nav Container
+--------------------------------------------------------- */
+.nav-container {
+  max-width: 1250px;
+  margin: auto;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------------------------------------------------------
+   Logo
+--------------------------------------------------------- */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  background: linear-gradient(90deg, #6c63ff, #4ad0e6);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: glowText 2.5s infinite ease-in-out;
+}
+
+.nav-logo-icon {
+  font-size: 1.7rem;
+  animation: rotateIn 1.3s ease;
+}
+
+@keyframes rotateIn {
+  from { transform: rotate(-90deg); opacity: 0; }
+  to { transform: rotate(0deg); opacity: 1; }
+}
+
+@keyframes glowText {
+  0% { filter: drop-shadow(0 0 0px #6c63ff); }
+  50% { filter: drop-shadow(0 0 8px #4ad0e6); }
+  100% { filter: drop-shadow(0 0 0px #6c63ff); }
+}
+
+
+/* ---------------------------------------------------------
+   Nav Links
+--------------------------------------------------------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: #0d1224;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.06rem;
+  transition: 0.35s ease;
+  padding-bottom: 6px;
+}
+
+/* Hover Effect */
+.nav-link:hover {
+  color: #6c63ff;
+  transform: translateY(-2px);
+}
+
+/* Underline Animation */
+.nav-item.active .nav-link {
+  color: #6c63ff;
+  font-weight: 700;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #6c63ff, #4ad0e6, #8f71ff);
+  border-radius: 10px;
+  transition: width 0.35s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   Floating Neon Border (subtle)
+--------------------------------------------------------- */
+.header-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #4ad0e6, #6c63ff, #b48bff);
+  animation: borderGlow 4s infinite linear;
+}
+
+@keyframes borderGlow {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}

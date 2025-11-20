@@ -1,0 +1,572 @@
+/* ---------------------------------------------------
+   🌈 ULTRA MODERN COLOR PALETTE
+---------------------------------------------------*/
+:root {
+  --mint: #9effe0;
+  --sky: #a5d8ff;
+  --violet: #c29bff;
+  --pink: #ffb3f1;
+  --neon-blue: #5ae1ff;
+  --deep-space: #0d1224;
+  --soft-bg: #eef2ff;
+  --card-bg: rgba(255, 255, 255, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.25);
+
+  --text-dark: #0f172a;
+  --text-light: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.28);
+  
+  /* New vibrant additions */
+  --electric-purple: #b967ff;
+  --cyber-green: #00ffc8;
+  --hot-pink: #ff2d95;
+  --sunset-orange: #ff6b6b;
+  --lemon-yellow: #fff44f;
+}
+
+/* ---------------------------------------------------
+   🌬️ Smooth Global Fade with Particle Effect
+---------------------------------------------------*/
+body {
+  background: linear-gradient(135deg, var(--soft-bg) 0%, #f0f8ff 100%);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  animation: smoothFade 1.2s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Floating particles background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--mint) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, var(--violet) 1px, transparent 1px),
+    radial-gradient(circle at 50% 10%, var(--neon-blue) 3px, transparent 3px);
+  background-size: 300px 300px, 200px 200px, 400px 400px;
+  opacity: 0.15;
+  z-index: -1;
+  animation: floatParticles 40s infinite linear;
+}
+
+@keyframes smoothFade {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatParticles {
+  0% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-30px) translateX(20px); }
+  66% { transform: translateY(20px) translateX(-15px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* ---------------------------------------------------
+   🔥 NEON GRADIENT NAVBAR (with glossy shine)
+---------------------------------------------------*/
+.header-nav {
+  background: linear-gradient(135deg, var(--mint), var(--sky), var(--violet));
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(164, 17, 17, 0.25);
+  box-shadow: 0 6px 25px rgba(14, 83, 135, 0.45);
+  position: relative;
+  overflow: hidden;
+  animation: navDrop 1s ease;
+}
+
+@keyframes navDrop {
+  from { transform: translateY(-25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Glossy Light Flow */
+.header-nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(226, 220, 220, 0.4), transparent);
+  animation: shineMove 3s infinite linear;
+}
+
+@keyframes shineMove {
+  0% { left: -150px; }
+  100% { left: 100%; }
+}
+
+/* ---------------------------------------------------
+   🖤 BLACK NAVBAR LINKS (Fresh + Animated)
+---------------------------------------------------*/
+
+.nav-link {
+  color: #000 !important;        /* PURE BLACK text */
+  font-weight: 700;
+  position: relative;
+  transition: 0.3s ease;
+
+  /* gradient hover effect */
+  background: linear-gradient(90deg, #000, var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #000; /* force black default */
+}
+
+/* Hover changes color to animated gradient */
+.nav-link:hover {
+  -webkit-text-fill-color: transparent;
+  background-position: 100% 0%;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Underline neon strip */
+.nav-link::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--violet), var(--pink));
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  transition: width .35s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------
+   💎 ADVANCED 3D GLASS CARDS (Tilt + Hover Lift + Border Animation)
+---------------------------------------------------*/
+.card {
+  background: var(--glass-bg);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 10px 30px var(--shadow);
+  padding: 16px;
+  transform-style: preserve-3d;
+  transition: transform .5s ease, box-shadow .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mint), var(--sky), var(--violet), var(--pink));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateX(6deg) rotateY(-6deg);
+  box-shadow: 0 14px 45px rgba(110, 110, 255, 0.55);
+}
+
+/* 🔥 Shimmer Line on Card */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shimmerFlow 2.8s infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+@keyframes shimmerFlow {
+  0% { left: -150px; }
+  100% { left: 100%; }
+}
+
+/* ---------------------------------------------------
+   📊 CHART AREA — Floating Glow with Gradient Border
+---------------------------------------------------*/
+.recharts-wrapper {
+  border-radius: 18px;
+  padding: 8px;
+  background: rgba(255,255,255,0.4);
+  box-shadow: 0 12px 35px rgba(140, 175, 255, 0.45);
+  animation: chartEnter .9s ease;
+  position: relative;
+}
+
+.recharts-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--mint), var(--violet), var(--pink));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.recharts-wrapper:hover::before {
+  opacity: 1;
+}
+
+@keyframes chartEnter {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------------------------------------------------
+   🔍 SEARCH BAR — Floating & Focus Glow with Icon Animation
+---------------------------------------------------*/
+.input-group {
+  position: relative;
+}
+
+input.form-control {
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.55);
+  border: 2px solid transparent;
+  transition: .35s ease;
+  box-shadow: 0 4px 15px rgba(200, 200, 255, 0.25);
+  padding-left: 45px;
+}
+
+input.form-control:focus {
+  border-color: var(--violet);
+  box-shadow: 0 4px 25px rgba(180,130,255,0.55);
+  transform: scale(1.03);
+}
+
+.input-group::before {
+  content: "🔍";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+input.form-control:focus + .input-group::before {
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* ---------------------------------------------------
+   🚀 BUTTON — Gradient Boost + Hover Lift with Ripple Effect
+---------------------------------------------------*/
+.btn-primary {
+  background: linear-gradient(135deg, var(--violet), var(--pink), var(--sky));
+  border: none;
+  padding: 10px 22px;
+  border-radius: 16px;
+  font-weight: bold;
+  transition: .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(165,130,255,0.55);
+}
+
+/* ---------------------------------------------------
+   📰 NEWS ITEMS — Smooth Slide + Shadow Hover with Gradient Accent
+---------------------------------------------------*/
+.list-group-item {
+  background: rgba(255,255,255,0.4);
+  border-radius: 12px !important;
+  transition: .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-group-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--mint), var(--violet));
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.list-group-item:hover::before {
+  transform: scaleY(1);
+}
+
+.list-group-item:hover {
+  background: rgba(159,255,224,0.35);
+  transform: translateX(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* ---------------------------------------------------
+   🌌 FOOTER — Soft Fade Up with Animated Gradient Border
+---------------------------------------------------*/
+.footer {
+  background: var(--deep-space);
+  color: white;
+  padding: 28px 0;
+  text-align: center;
+  animation: fadeUp 1.1s ease;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mint), var(--sky), var(--violet), var(--pink));
+  background-size: 400% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------------------------------------------------
+   ✨ ADDITIONAL ENHANCEMENTS
+---------------------------------------------------*/
+
+/* Pulse animation for important elements */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(90, 225, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(90, 225, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(90, 225, 255, 0); }
+}
+
+/* Floating animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Text gradient animation */
+.animated-gradient {
+  background: linear-gradient(-45deg, var(--mint), var(--sky), var(--violet), var(--pink));
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Morphing background for hero sections */
+.morph-bg {
+  background: linear-gradient(-45deg, var(--mint), var(--sky), var(--violet), var(--pink));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-radius: 20px;
+}
+
+/* Glitch text effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 var(--hot-pink);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 var(--cyber-green);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  5% { clip: rect(12px, 9999px, 59px, 0); }
+  10% { clip: rect(48px, 9999px, 29px, 0); }
+  15% { clip: rect(42px, 9999px, 73px, 0); }
+  20% { clip: rect(63px, 9999px, 27px, 0); }
+  25% { clip: rect(34px, 9999px, 55px, 0); }
+  30% { clip: rect(86px, 9999px, 73px, 0); }
+  35% { clip: rect(20px, 9999px, 20px, 0); }
+  40% { clip: rect(26px, 9999px, 60px, 0); }
+  45% { clip: rect(25px, 9999px, 66px, 0); }
+  50% { clip: rect(57px, 9999px, 98px, 0); }
+  55% { clip: rect(5px, 9999px, 46px, 0); }
+  60% { clip: rect(82px, 9999px, 31px, 0); }
+  65% { clip: rect(54px, 9999px, 27px, 0); }
+  70% { clip: rect(28px, 9999px, 99px, 0); }
+  75% { clip: rect(45px, 9999px, 69px, 0); }
+  80% { clip: rect(23px, 9999px, 85px, 0); }
+  85% { clip: rect(54px, 9999px, 84px, 0); }
+  90% { clip: rect(45px, 9999px, 47px, 0); }
+  95% { clip: rect(37px, 9999px, 20px, 0); }
+  100% { clip: rect(4px, 9999px, 91px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); }
+  5% { clip: rect(52px, 9999px, 74px, 0); }
+  10% { clip: rect(79px, 9999px, 85px, 0); }
+  15% { clip: rect(75px, 9999px, 5px, 0); }
+  20% { clip: rect(67px, 9999px, 61px, 0); }
+  25% { clip: rect(14px, 9999px, 79px, 0); }
+  30% { clip: rect(1px, 9999px, 66px, 0); }
+  35% { clip: rect(86px, 9999px, 30px, 0); }
+  40% { clip: rect(23px, 9999px, 98px, 0); }
+  45% { clip: rect(85px, 9999px, 72px, 0); }
+  50% { clip: rect(71px, 9999px, 75px, 0); }
+  55% { clip: rect(2px, 9999px, 48px, 0); }
+  60% { clip: rect(30px, 9999px, 16px, 0); }
+  65% { clip: rect(59px, 9999px, 50px, 0); }
+  70% { clip: rect(41px, 9999px, 62px, 0); }
+  75% { clip: rect(2px, 9999px, 82px, 0); }
+  80% { clip: rect(47px, 9999px, 73px, 0); }
+  85% { clip: rect(3px, 9999px, 27px, 0); }
+  90% { clip: rect(26px, 9999px, 55px, 0); }
+  95% { clip: rect(42px, 9999px, 97px, 0); }
+  100% { clip: rect(38px, 9999px, 49px, 0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+  --bg:#f6f7fb; --card:#fff; --muted:#6b7280; --accent:#0b4dd6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#0f172a}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:#0b1220;color:#fff}
+.logo{font-weight:700;font-size:18px;margin-right:20px}
+.nav-links a{margin-right:14px;opacity:0.9}
+.nav-center{display:flex;gap:8px;align-items:center}
+.nav-center input{padding:8px 10px;border-radius:8px;border:1px solid #2b3440;width:340px}
+.nav .btn{background:#fff;color:#0b1220;padding:8px 12px;border-radius:8px;border:none;margin-left:8px}
+
+.page-container{max-width:1200px;margin:20px auto;padding:0 16px}
+.banner{background:#fff;padding:10px;border-radius:8px;margin-bottom:18px}
+.banner.error{background:#fee2e2;color:#7f1d1d}
+
+.stock-header{display:flex;justify-content:space-between;align-items:flex-start;padding:18px;gap:12px}
+.stock-header h2{margin:0}
+.ticker-line{display:flex;align-items:center;gap:14px;margin-top:6px}
+.price{font-size:28px;font-weight:800}
+.change.up{color:#059669}
+.change.down{color:#dc2626}
+.meta{color:var(--muted);margin-top:8px}
+
+.two-col{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+.main-col{min-width:0}
+.side-col{}
+
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.06);margin-bottom:18px}
+
+.keystats .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{padding:8px;background:#f8fafc;border-radius:8px}
+.stat-key{font-size:13px;color:var(--muted)}
+.stat-val{font-weight:700;margin-top:6px}
+
+.chartArea.small{display:flex;align-items:end;gap:6px;height:160px;overflow-x:auto;padding:8px}
+.barGroup{text-align:center;width:20px}
+.bar{width:100%;background:linear-gradient(180deg,#0b1220,#4b5563);border-radius:6px}
+.barLabel{font-size:10px;color:var(--muted);margin-top:6px}
+
+.peer-table table{width:100%;border-collapse:collapse}
+.peer-table th, .peer-table td{padding:8px;border-bottom:1px solid #eef2f7;font-size:13px}
+.ann-list{list-style:none;padding:0;margin:0}
+.ann-list li{padding:6px 0;border-bottom:1px dashed #eee;color:var(--muted)}
+
+.financial-scroll{overflow-x:auto}
+.financial-table{border-collapse:collapse;width:100%}
+.financial-table th, .financial-table td{padding:8px;border:1px solid #eef2f7;white-space:nowrap;font-size:13px}
+.footer{text-align:center;padding:18px;color:var(--muted);margin-top:24px}

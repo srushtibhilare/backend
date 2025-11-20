@@ -1,0 +1,93 @@
+/* --------------------------------------------------------
+   📈 Ultra-Modern Stock Chart Card (Glass + Motion + Glow)
+---------------------------------------------------------*/
+
+/* Card container */
+.chart-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* Motion entry animation */
+  animation: chartDrop 1s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass shine moving across the card */
+.chart-shine {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 180px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  animation: shineFlow 4.2s infinite linear;
+  opacity: 0.55;
+  filter: blur(10px);
+}
+
+@keyframes shineFlow {
+  0% { left: -200px; }
+  100% { left: 120%; }
+}
+
+/* Drop and fade effect */
+@keyframes chartDrop {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Title */
+.chart-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0d1224;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+
+  animation: fadeIn 1.2s ease;
+}
+
+/* Tooltip glow */
+.recharts-tooltip-wrapper {
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.25));
+  animation: tooltipFloat 0.3s ease;
+}
+
+@keyframes tooltipFloat {
+  from { transform: translateY(6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Grid line color (soft pastel) */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(140, 160, 255, 0.25) !important;
+}
+
+/* Hover line animation */
+.recharts-line path {
+  stroke-linecap: round;
+  animation: lineGlow 3s infinite ease-in-out alternate;
+}
+
+@keyframes lineGlow {
+  0% { filter: drop-shadow(0 0 0px #82b1ff); }
+  100% { filter: drop-shadow(0 0 9px #82b1ff); }
+}
+
