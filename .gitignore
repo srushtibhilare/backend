@@ -1,6 +1,5 @@
 
 node_modules/
-.env
 dist/
 build/
 
@@ -14,5 +13,5 @@ stock_env/
 *.pyc
 _pycache_/
 node_modules/
-.env
 
+config.bat
